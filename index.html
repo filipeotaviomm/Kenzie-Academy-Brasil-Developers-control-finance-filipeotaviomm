@@ -16,11 +16,116 @@
     />
     <link rel="stylesheet" href="./src/styles/globalStyles.css" />
     <link rel="stylesheet" href="./src/styles/index.css" />
+    <link rel="stylesheet" href="./src/styles/header.css" />
+    <link rel="stylesheet" href="./src/styles/nav.css" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="stylesheet" href="./src/styles/modal.css" />
   </head>
   <body>
-    <main id="app"></main>
-    <script src="./src/scripts/modal.js"></script>
-    <script src="./src/scripts/valuesData.js"></script>
-    <script src="./src/scripts/index.js"></script>
+    <header>
+      <div class="header__container">
+        <h1><span class="span__space">Control</span>Finance</h1>
+        <div class="header__button">
+          <button>Registrar novo valor</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container__nav-main">
+      <nav>
+        <div class="nav__container">
+          <div class="nav__align-row">
+            <h2>Resumo financeiro</h2>
+            <div class="nav__buttons">
+              <button id="nav__button-all" class="nav__buttons-inner">
+                Todos
+              </button>
+              <button
+                id="nav__button-incomes"
+                class="nav__buttons-inner"
+                value="0"
+              >
+                Entradas
+              </button>
+              <button
+                id="nav__button-withdraw"
+                class="nav__buttons-inner"
+                value="1"
+              >
+                Saídas
+              </button>
+            </div>
+          </div>
+          <div class="nav__display">
+            <p>Soma dos valores</p>
+            <span>0</span>
+          </div>
+        </div>
+      </nav>
+
+      <main id="app" class="main__container">
+        <div class="main__card-not-found">
+          <h3>Nenhum valor encontrado</h3>
+          <p>Registrar novo valor</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <span>R$</span>
+            <p></p>
+            <div class="card__align-p-img">
+              <p>Entrada</p>
+              <img src="./src/assets/trash.svg" alt="" />
+            </div>
+          </div>
+          <div class="card">
+            <span>R$</span>
+            <p></p>
+            <div class="card__align-p-img">
+              <p>Saída</p>
+              <img src="./src/assets/trash.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modalController">
+      <form class="modal__container">
+        <div class="align__h2-button">
+          <h2>Registro de valor</h2>
+          <button>X</button>
+        </div>
+        <p>
+          Digite o valor e em seguida aperte no botão referente ao tipo do valor
+        </p>
+        <div class="modal__card">
+          <h3>Valor</h3>
+          <div class="modal__card-inner">
+            <span>R$</span>
+            <input type="number" />
+          </div>
+        </div>
+        <div class="modal__align-h3-buttons">
+          <h3>Tipo de valor</h3>
+          <div class="modal__buttons">
+            <input
+              hidden
+              type="radio"
+              id="entrada"
+              name="categoryID"
+              value="0"
+            />
+            <label for="entrada">Entrada</label>
+            <input hidden type="radio" id="saída" name="categoryID" value="1" />
+            <label for="saída">Saída</label>
+          </div>
+        </div>
+        <div class="modal__buttons2">
+          <button class="modal__button1-inner">Cancelar</button>
+          <button class="modal__button2-inner">Inserir valor</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="./src/scripts/index.js"></script>
   </body>
 </html>
